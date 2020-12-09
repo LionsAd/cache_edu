@@ -54,11 +54,11 @@ class PizzaShop extends ControllerBase {
    *   A simple renderable array.
    */
   public function simpleBestBefore__3() {
-    $cid = 'pizza:margherita'; // Cache ID
+    $cid = 'pizza:best-before:margherita'; // Cache ID
     
     $cached_pizza = \Drupal::cache('pizzas')->get($cid);
     if ($cached_pizza) {
-      return static::deliver($cached_pizza->data);
+      return static::deliver($cached_pizza->data, static::debugCacheItem($cached_pizza));
     }
 
     $time_to_live = 10; // 10 seconds valid
@@ -69,10 +69,23 @@ class PizzaShop extends ControllerBase {
     return static::deliver($pizza);
   }
 
-  public static function deliver(object $pizza) {
+  public static function debugCacheItem($item) {
+    $extra = [];
+    $extra[] = '<hr />';
+    $extra[] = '<pre>';
+    $extra[] = 'TTL (left): ' . ($item->expire - time());
+    $extra[] = '';
+    foreach ($item as $key => $value) {
+      $extra[] = "$key: " . json_encode($value);
+    }
+    $extra[] = '</pre>';
+    return implode('<br />', $extra);
+  }
+
+  public static function deliver(object $pizza, $extra = '') {
     \Drupal::service('page_cache_kill_switch')->trigger();
     return [
-      '#markup' => (string) $pizza,
+      '#markup' => (string) $pizza . $extra,
     ];
   }
 }
