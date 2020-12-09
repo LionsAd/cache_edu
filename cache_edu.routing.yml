@@ -38,7 +38,7 @@ cache_edu.frozen_pizzas_6:
   path: '/cache-edu/frozen-pizzas-6'
   defaults:
     _controller: '\Drupal\cache_edu\Controller\PizzaShop::frozenPizzas__6'
-    _title: 'Margherita'
+    _title: 'Frozen Margherita'
   requirements:
     _permission: 'access content'
 
@@ -46,6 +46,13 @@ cache_edu.frozen_pizzas_tags_7:
   path: '/cache-edu/frozen-pizzas-with-tags-7'
   defaults:
     _controller: '\Drupal\cache_edu\Controller\PizzaShop::frozenPizzasTags__7'
-    _title: 'Marinara (with Tags)'
+    _title: 'Frozen Marinara (with Tags)'
+  requirements:
+    _permission: 'access content'
+cache_edu.frozen_pizzas_invalidate_8:
+  path: '/cache-edu/frozen-pizzas-invalidate-tags-8'
+  defaults:
+    _controller: '\Drupal\cache_edu\Controller\PizzaShop::frozenPizzasInvalidate__8'
+    _title: 'Invalidate frozen dough_version'
   requirements:
     _permission: 'access content'

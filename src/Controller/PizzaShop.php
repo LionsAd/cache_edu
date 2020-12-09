@@ -146,6 +146,27 @@ class PizzaShop extends ControllerBase {
     return static::deliver($pizza);
   }
 
+  /**
+   * Invalidates dough_version.
+   *
+   * @return array
+   *   A simple renderable array.
+   */
+  public function frozenPizzasInvalidate__8() {
+    \Drupal::service('cache_tags.invalidator')->invalidateTags(['dough_version']);
+
+    $debug = [];
+    $debug[] = '<pre>';
+    $debug[] = 'Tags (versions): ' . static::debugCacheTags(['dough_version']);
+    $debug[] = '</pre>';
+    \Drupal::service('page_cache_kill_switch')->trigger();
+
+    return [
+      '#markup' => $this->t("'dough_version' invalidated!") . implode('<br />', $debug),
+    ];
+  }
+
+
   public static function debugCacheTags($tags) {
     $keyed = \Drupal::service('database')
       ->query('SELECT tag, invalidations FROM {cachetags} WHERE tag IN ( :tags[] )', [':tags[]' => $tags])
