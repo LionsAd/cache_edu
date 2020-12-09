@@ -1,0 +1,17 @@
+services:
+  pizza.oven:
+    class: Drupal\cache_edu\Factory\PizzaOven
+  # Pizzas cache bin.
+  cache.pizzas:
+    class: Drupal\Core\Cache\CacheBackendInterface
+    tags:
+      - { name: cache.bin }
+    factory: cache_factory:get
+    arguments: ['pizzas']
+  # Frozen pizzas cache bin.
+  cache.frozen_pizzas:
+    class: Drupal\Core\Cache\CacheBackendInterface
+    tags:
+      - { name: cache.bin }
+    factory: cache_factory:get
+    arguments: ['frozen_pizzas']

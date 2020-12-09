@@ -1,0 +1,21 @@
+cache_edu.simple_get_1:
+  path: '/cache-edu/simple-get-1'
+  defaults:
+    _controller: '\Drupal\cache_edu\Controller\PizzaShop::simpleGet__1'
+    _title: 'Simple pizza cache (broken)'
+  requirements:
+    _permission: 'access content'
+cache_edu.simple_get_2:
+  path: '/cache-edu/simple-get-2'
+  defaults:
+    _controller: '\Drupal\cache_edu\Controller\PizzaShop::simpleGet__2'
+    _title: 'Simple pizza cache (working)'
+  requirements:
+    _permission: 'access content'
+cache_edu.simple_best_before_3:
+  path: '/cache-edu/simple-best-before-3'
+  defaults:
+    _controller: '\Drupal\cache_edu\Controller\PizzaShop::simpleBestBefore__3'
+    _title: 'Simple pizza cache (best before 09/2022)'
+  requirements:
+    _permission: 'access content'

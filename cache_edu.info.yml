@@ -1,0 +1,6 @@
+name: Cache Edu
+type: module
+description: 'Provides the examples for Caching Deep Dive 2.0.'
+package: Custom
+core: 8.x
+core_version_requirement: ^8 || ^9
