@@ -1,6 +1,8 @@
 services:
   pizza.oven:
     class: Drupal\cache_edu\Factory\PizzaOven
+  pizza.maker:
+    class: Drupal\cache_edu\Factory\PizzaMaker
   # Pizzas cache bin.
   cache.pizzas:
     class: Drupal\Core\Cache\CacheBackendInterface

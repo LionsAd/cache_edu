@@ -1,16 +1,49 @@
+cache_edu.simple_parent:
+  route_name: cache_edu.simple_get_1
+  title: 'Pizzas'
+  base_route: cache_edu.simple_get_1
+
 cache_edu.simple_get_1:
   route_name: cache_edu.simple_get_1
   title: 'Cache 1'
-  base_route: cache_edu.simple_get_1
+  parent_id: cache_edu.simple_parent
+  weight: 0
 
 cache_edu.simple_get_2:
   route_name: cache_edu.simple_get_2
   title: 'Cache 2'
-  base_route: cache_edu.simple_get_1
+  parent_id: cache_edu.simple_parent
   weight: 10
 
 cache_edu.simple_best_before_3:
   route_name: cache_edu.simple_best_before_3
   title: 'Best Before'
-  base_route: cache_edu.simple_get_1
+  parent_id: cache_edu.simple_parent
   weight: 20
+
+cache_edu.simple_cleanup_one_pizza_4:
+  route_name: cache_edu.simple_cleanup_one_pizza_4
+  title: 'Cleanup Weekend'
+  parent_id: cache_edu.simple_parent
+  weight: 30
+
+cache_edu.simple_cleanup_all_pizzas_5:
+  route_name: cache_edu.simple_cleanup_all_pizzas_5
+  title: 'Cleanup Pizzas'
+  parent_id: cache_edu.simple_parent
+  weight: 30
+
+cache_edu.frozen_pizzas:
+  route_name: cache_edu.frozen_pizzas_6
+  title: 'FrozenPizzas'
+  base_route: cache_edu.simple_get_1
+
+cache_edu.frozen_pizzas_6:
+  route_name: cache_edu.frozen_pizzas_6
+  title: 'Marinara'
+  parent_id: cache_edu.frozen_pizzas
+
+cache_edu.frozen_pizzas_tags_7:
+  route_name: cache_edu.frozen_pizzas_tags_7
+  title: 'Marinara (with Tags)'
+  parent_id: cache_edu.frozen_pizzas
